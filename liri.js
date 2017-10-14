@@ -1,1 +1,3 @@
-let twitterKeys = require("./keys");
+let twitter = require("./commands/twitter");
+
+console.log(twitter);
