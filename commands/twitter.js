@@ -7,4 +7,27 @@ let twitter = new Twitter({
 	access_token_secret: process.env.DB_ACCESS_TOKEN_SECRET
 });
 
-module.exports = twitter;
+let params = {
+	screen_name: 'barackobama',
+	count: 1
+};
+
+async function getTweet(screenName) {
+	if (screenName) {
+		console.log("Screen Name:",screenName);
+		params.screen_name = screenName;
+	}
+	var tweets = await twitter.get('statuses/user_timeline', params);
+	return processTweets(tweets);
+}
+
+function processTweets(tweets) {
+	tweets.map(tweet => {
+		console.log("-------------------");
+		console.log(tweet);
+		console.log("-------------------");
+	});
+
+}
+
+module.exports = getTweet;

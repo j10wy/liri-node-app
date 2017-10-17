@@ -1,12 +1,22 @@
+// Require the .env file with access tokens
 require('dotenv').config();
-let twitter = require("./commands/twitter");
 
-let params = {screen_name: 'jeffreylowy'};
+// ---- TWITTER ----
+let twitter = require('./commands/twitter');
 
-twitter.get('statuses/user_timeline', params, function(error, tweets, response) {
+// ---- COMMANDS/OPTIONS ----
+let warning = require('./commands/warning');
+let command = process.argv[2];
+let handle_song_movie = process.argv[3];
 
-	  console.log(tweets);
-
-  });
-
-//console.log(twitter);
+switch (command) {
+	case ('my-tweets'):
+		twitter(handle_song_movie);
+		break;
+	case ('movie-this'):
+		// omdb();
+		break;
+	default:
+		warning();
+		break;
+}
