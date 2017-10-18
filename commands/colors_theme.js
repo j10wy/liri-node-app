@@ -1,5 +1,6 @@
 module.exports = {
-	error: ['red', 'bold', 'underline',],
+	help_title: ['red', 'bold', 'underline'],
+	error: ['red','bold'],
 	tweets: ['cyan', 'bold'],
 	spotify: ['green', 'bold'],
 	omdb: ['yellow', 'bold'],
