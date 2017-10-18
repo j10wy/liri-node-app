@@ -3,9 +3,9 @@ const theme = require("./colors_theme");
 
 colors.setTheme(theme);
 
-function warning() {
+function help() {
 	// Help title
-	console.log("\nENTER VALID COMMAND\n".error);
+	console.log("\nENTER VALID COMMAND\n".help_title);
 	// Twitter 
 	console.log("my-tweets".tweets);
 	console.log("usage: my-tweets " + "<handle> [--#]\n".data);
@@ -24,4 +24,4 @@ function warning() {
 	console.log("----------------------------------------------------------------------------------\n".white);
 }
 
-module.exports = warning;
+module.exports = help;

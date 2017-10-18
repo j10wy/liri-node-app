@@ -26,3 +26,7 @@ LIRI is a command line Node application that takes in parameters (via command li
 [MDN: async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
 [Carbon: Source code images](https://carbon.now.sh/)
+
+[David Walsh: Git Undo](https://davidwalsh.name/git-undo)
+
+[codeburst.io: Array.find & Array.findIndex](https://codeburst.io/learn-javascript-es6-array-find-array-findindex-7fe4f63c6974)

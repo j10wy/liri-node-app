@@ -62,3 +62,7 @@ typings/
 
 # macOS Desktop Services Store
 .DS_Store
+
+# Docs folder
+*docs/*
+spotify_response.json

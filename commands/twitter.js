@@ -30,12 +30,12 @@ function processTweets(tweets) {
 		// Store tweet info in variables
 		var screen_name = tweet.user.screen_name;
 		var tweet_text = tweet.text;
-		var tweet_time = moment(new Date(tweet.created_at), 'YYYY-MM-DD hh:mm:ss a');
+		var tweet_time = moment(new Date(tweet.created_at), 'YYYY-MM-DD hh:mm:ss');
 
 		// Log tweet to the console
 		console.log(`\n@${screen_name}:`.tweets, `${tweet_text}`.white);
 		console.log(`Created: ${tweet_time}`.data);
-		console.log("-------------------");
+		console.log("\n-------------------\n");
 	});
 
 }
