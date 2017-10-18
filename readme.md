@@ -12,10 +12,10 @@ LIRI is a command line Node application that takes in parameters (via command li
 ---------------------------
 
 ### Make LIRI speak using Node's child_process.spawn 
-```javascript
-const spawn = require("child_process").spawn;
-spawn("say",["What up!"]);
-```
+<img src="docs/carbon-spawn.png">
+
+### Dependencies
+<img src="docs/carbon-dependencies.png">
 
 ### Resources 
 
@@ -24,3 +24,5 @@ spawn("say",["What up!"]);
 [MDN: Number.prototype.toLocaleString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString)
 
 [MDN: async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+[Carbon: Source code images](https://carbon.now.sh/)
