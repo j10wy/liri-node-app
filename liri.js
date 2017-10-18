@@ -1,6 +1,9 @@
 // Require the .env file with access tokens
 require('dotenv').config();
 
+// ---- OMDB ----
+const omdb = require('./commands/omdb');
+
 // ---- TWITTER ----
 const twitter = require('./commands/twitter');
 
@@ -23,7 +26,7 @@ switch (command) {
 		spotify(handle_song_movie);
 		break;
 	case ('movie-this'):
-		// omdb();
+		omdb(handle_song_movie);
 		break;
 	default:
 		help();

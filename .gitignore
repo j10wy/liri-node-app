@@ -66,3 +66,4 @@ typings/
 # Docs folder
 *docs/*
 spotify_response.json
+/omdb_response.js
