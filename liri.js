@@ -2,10 +2,13 @@
 require('dotenv').config();
 
 // ---- TWITTER ----
-let twitter = require('./commands/twitter');
+const twitter = require('./commands/twitter');
+
+// ---- HELP INFO ----
+const help = require('./commands/help');
 
 // ---- COMMANDS/OPTIONS ----
-let warning = require('./commands/warning');
+
 let command = process.argv[2];
 let handle_song_movie = process.argv[3];
 
@@ -13,10 +16,13 @@ switch (command) {
 	case ('my-tweets'):
 		twitter(handle_song_movie);
 		break;
+	case ('spotify-this-song'):
+		// spotify();
+		break;
 	case ('movie-this'):
 		// omdb();
 		break;
 	default:
-		warning();
+		help();
 		break;
 }

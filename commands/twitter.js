@@ -1,20 +1,24 @@
 const Twitter = require('twitter');
+const colors = require('colors');
+const moment = require("moment");
+const theme = require("./colors_theme");
+
+colors.setTheme(theme);
 
 let twitter = new Twitter({
-	consumer_key: process.env.DB_CONSUMER_KEY,
-	consumer_secret: process.env.DB_CONSUMER_SECRET,
-	access_token_key: process.env.DB_ACCESS_TOKEN_KEY,
-	access_token_secret: process.env.DB_ACCESS_TOKEN_SECRET
+	consumer_key: process.env.TWITTER_CONSUMER_KEY,
+	consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+	access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
 let params = {
 	screen_name: 'barackobama',
-	count: 1
+	count: 5
 };
 
 async function getTweet(screenName) {
 	if (screenName) {
-		console.log("Screen Name:",screenName);
 		params.screen_name = screenName;
 	}
 	var tweets = await twitter.get('statuses/user_timeline', params);
@@ -23,8 +27,14 @@ async function getTweet(screenName) {
 
 function processTweets(tweets) {
 	tweets.map(tweet => {
-		console.log("-------------------");
-		console.log(tweet);
+		// Store tweet info in variables
+		var screen_name = tweet.user.screen_name;
+		var tweet_text = tweet.text;
+		var tweet_time = moment(new Date(tweet.created_at), 'YYYY-MM-DD hh:mm:ss a');
+
+		// Log tweet to the console
+		console.log(`\n@${screen_name}:`.tweets, `${tweet_text}`.white);
+		console.log(`Created: ${tweet_time}`.data);
 		console.log("-------------------");
 	});
 
