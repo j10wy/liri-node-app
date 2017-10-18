@@ -12,7 +12,7 @@ let spotify = new Spotify({
 
 let searchSettings = {
 	type: 'track',
-	query: 'All the Small Things',
+	query: 'Ace of Base The Sign',
 	limit: 3
 }
 
