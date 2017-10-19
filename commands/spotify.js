@@ -2,6 +2,7 @@ const Spotify = require('node-spotify-api');
 const colors = require("colors");
 const theme = require("./colors_theme");
 const propercase = require('propercase');
+const {log_data} = require('./logger');
 
 colors.setTheme(theme);
 
@@ -42,6 +43,8 @@ function processTracks(response) {
 			console.log(`Album:`.spotify, `${album_title}`.white);
 			console.log(`URL:`, `${preview_link}`.spotify.underline);
 			console.log("\n--------------------------------------\n");
+			
+			log_data(`\nArtist: ${artist_name}\nSong: ${song_title}\nAlbum:${album_title}\nURL: ${preview_link}\n\n-------------------\n`);
 
 		});
 	} else {

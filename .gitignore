@@ -67,3 +67,4 @@ typings/
 *docs/*
 spotify_response.json
 /omdb_response.js
+log_history.txt

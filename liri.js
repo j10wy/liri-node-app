@@ -10,8 +10,8 @@ const spotify = require('./commands/spotify');
 const doWhatItSays = require('./commands/do-what-it-says');
 // ---- HELP INFO ----
 const help = require('./commands/help');
-// ---- COMMANDS/OPTIONS ----
-
+// ---- COMMANDS/LOGGER/OPTIONS ----
+const {log_command} = require('./commands/logger');
 let command = process.argv[2];
 let handle_song_movie = process.argv[3] === "--say" ? undefined : process.argv[3];
 let options = {
@@ -20,11 +20,13 @@ let options = {
 
 (function (arguments) {
 	arguments.find((item, index) => {
-		if(item === '--say' && index === 4) {
+		if (index === 4 && item === '--say') {
 			options.say = true;
 		}
 	});
 }(process.argv));
+
+log_command(process.argv);
 
 switch (command) {
 	case ('tweets'):

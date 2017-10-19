@@ -2,6 +2,7 @@ const Twitter = require('twitter');
 const colors = require('colors');
 const moment = require("moment");
 const theme = require("./colors_theme");
+const {log_data} = require('./logger');
 
 colors.setTheme(theme);
 
@@ -36,6 +37,8 @@ function processTweets(tweets) {
 		console.log(`\n@${screen_name}:`.tweets, `${tweet_text}`.white);
 		console.log(`Created: ${tweet_time}`.data);
 		console.log("\n-------------------\n");
+
+		log_data(`\n@${screen_name}: ${tweet_text}\nCreated: ${tweet_time}\n\n-------------------\n`);
 	});
 
 }

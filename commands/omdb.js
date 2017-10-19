@@ -4,6 +4,8 @@ const spawn = require("child_process").spawn;
 const request = require('request');
 const colors = require('colors');
 const theme = require("./colors_theme");
+const {log_data} = require('./logger');
+
 colors.setTheme(theme);
 let omdb = {
 	base: `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}`,
@@ -23,6 +25,7 @@ function omdbRequest(movie_title, options = {
 	request(omdb.url, function (error, response, body) {
 		var body = JSON.parse(body);
 		var os_platform = os.platform();
+		var rule = "\n\n--------------------------------------\n";
 		if (body.Response != 'False') {
 			omdb.movie_title = body.Title;
 			omdb.movie_year = body.Year;
@@ -44,14 +47,18 @@ function omdbRequest(movie_title, options = {
 			console.log(`Language:`.omdb, `${omdb.movie_language}`.white);
 			console.log(`Director:`.omdb, `${omdb.movie_director}`.white);
 			console.log(`Actors:`.omdb, `${omdb.movie_actors}`.white);
-			console.log(`\nPlot:`.omdb, `${omdb.movie_plot}`.white);
-			console.log("\n--------------------------------------\n");
+			console.log(`Plot:`.omdb, `${omdb.movie_plot}`.white);
+			console.log(rule);
+
+			log_data(`\nTitle: ${omdb.movie_title}\nYear: ${omdb.movie_year}\nIMDB Rating: ${omdb.movie_ratings_obj.imdb} Rotten Tomatoes Rating: ${omdb.movie_ratings_obj.rotten_tomatoes}\nCountry: ${omdb.movie_country}\nLanguage: ${omdb.movie_language}\nDirector: ${omdb.movie_director}\nActors: ${omdb.movie_actors}\n\nPlot: ${omdb.movie_plot}${rule}`);
+
 			if (options.say && os_platform === 'darwin') {
 				say(options, `${omdb.movie_title}. ${omdb.movie_year}. ${omdb.movie_plot}`);
 			}
 
 		} else {
 			console.log("Error:".error, "Movie not found!".white);
+			log_data(`\nError: Movie not found!${rule}`);
 		}
 
 	});
