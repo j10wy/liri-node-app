@@ -20,7 +20,11 @@ function doWhatItSays() {
 		var command = randomTxt[0];
 		var handle_song_movie = randomTxt[1];
 
-		commands[command](handle_song_movie);
+		if (typeof commands[command] === 'function') {
+			commands[command](handle_song_movie);
+		} else {
+			commands.help();
+		}
 
 	});
 }
