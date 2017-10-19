@@ -1,4 +1,6 @@
 require('dotenv').config();
+const os = require('os');
+const spawn = require("child_process").spawn;
 const request = require('request');
 const colors = require('colors');
 const theme = require("./colors_theme");
@@ -9,7 +11,9 @@ let omdb = {
 	t: 'Mr. Nobody'
 }
 
-function omdbRequest(movie_title) {
+function omdbRequest(movie_title, options = {
+	say: false
+}) {
 	if (movie_title) {
 		omdb.t = movie_title;
 	}
@@ -18,6 +22,7 @@ function omdbRequest(movie_title) {
 
 	request(omdb.url, function (error, response, body) {
 		var body = JSON.parse(body);
+		var os_platform = os.platform();
 		if (body.Response != 'False') {
 			omdb.movie_title = body.Title;
 			omdb.movie_year = body.Year;
@@ -41,6 +46,10 @@ function omdbRequest(movie_title) {
 			console.log(`Actors:`.omdb, `${omdb.movie_actors}`.white);
 			console.log(`\nPlot:`.omdb, `${omdb.movie_plot}`.white);
 			console.log("\n--------------------------------------\n");
+			if (options.say && os_platform === 'darwin') {
+				say(options, `${omdb.movie_title}. ${omdb.movie_year}. ${omdb.movie_plot}`);
+			}
+
 		} else {
 			console.log("Error:".error, "Movie not found!".white);
 		}
@@ -62,6 +71,13 @@ function buildRatingsObj(ratingsArray) {
 				break;
 		}
 	});
+}
+
+function say(options, text) {
+	var os_platform = os.platform();
+	if (options.say && os_platform === 'darwin') {
+		spawn('say', [text]);
+	}
 }
 
 module.exports = omdbRequest;
