@@ -7,9 +7,6 @@ npm-debug.log*
 node_modules/
 jspm_packages/
 
-# Docs directory
-docs/
-
 # Optional npm cache directory
 .npm
 
