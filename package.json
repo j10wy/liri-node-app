@@ -26,6 +26,7 @@
   "dependencies": {
     "colors": "^1.1.2",
     "dotenv": "^4.0.0",
+    "inquirer": "^3.3.0",
     "moment": "^2.19.1",
     "node-spotify-api": "^1.0.7",
     "propercase": "^1.0.2",
