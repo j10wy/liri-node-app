@@ -11,11 +11,11 @@ LIRI is a command line Node application that takes in parameters (via command li
 
 ---------------------------
 
-### Make LIRI speak using Node's child_process.spawn 
-<img src="docs/carbon-spawn.png">
+### LIRI Commands
+<img src="docs/carbon-commands.png">
 
-### Dependencies
-<img src="docs/carbon-dependencies.png">
+### Make LIRI speak using Node's child_process.spawn 
+<img src="docs/carbon-say.png">
 
 ### Resources 
 
