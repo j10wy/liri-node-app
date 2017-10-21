@@ -9,7 +9,7 @@
   "scripts": {
     "help": "./liri.js",
     "do": "./liri.js do-what-it-says",
-    "movie": "./liri.js omdb",
+    "movie": "./liri.js movie",
     "spotify": "./liri.js spotify",
     "tweets": "./liri.js tweets"
   },

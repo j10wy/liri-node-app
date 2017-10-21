@@ -39,7 +39,7 @@ function omdbRequest(movie_title, options = {
 		// Store each of the items we need from the response in a variable
 		var body = JSON.parse(body);
 		var os_platform = os.platform();
-		var rule = "\n\n--------------------------------------\n";
+		var rule = "\n--------------------------------------\n";
 		if (body.Response != 'False') {
 			omdb.movie_title = body.Title;
 			omdb.movie_year = body.Year;
@@ -63,7 +63,7 @@ function omdbRequest(movie_title, options = {
 			console.log(`Language:`.omdb, `${omdb.movie_language}`.white);
 			console.log(`Director:`.omdb, `${omdb.movie_director}`.white);
 			console.log(`Actors:`.omdb, `${omdb.movie_actors}`.white);
-			console.log(`Plot:`.omdb, `${omdb.movie_plot}`.white);
+			console.log(`\nPlot:`.omdb, `${omdb.movie_plot}`.white);
 			console.log(rule);
 
 			// Log data to the history.log file
