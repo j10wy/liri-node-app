@@ -1,6 +1,6 @@
 {
   "name": "liri-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LIRI is a command line Node application that takes in parameters (via command line arguments or file input) to display tweets, songs from Spotify, and movie information from OMDB.",
   "main": "liri.js",
   "bin": {
