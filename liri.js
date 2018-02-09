@@ -1,5 +1,5 @@
 #! /usr/bin/env node
- // Require the .env file with access tokens
+// Require the .env file with access tokens
 require('dotenv').config();
 // ---- OMDB ----
 const omdb = require('./commands/omdb');
