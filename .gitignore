@@ -17,8 +17,8 @@ jspm_packages/
 *.tgz
 
 # dotenv environment variables file
-!.env
-.env2
+.env
+!.env-sample
 
 # macOS Desktop Services Store
 .DS_Store
